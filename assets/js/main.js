@@ -52,8 +52,6 @@ skillsHeader.forEach((el) => {
 
 })
 
-
-
 /*==================== QUALIFICATION TABS ====================*/
 
 const tabs = document.querySelectorAll('[data-target]'),
@@ -77,10 +75,9 @@ tabs.forEach(tab => {
     })
 })
 
-
 /*==================== PORTFOLIO SWIPER  ====================*/
 
-var swiper = new Swiper(".portfolio__container", {
+let swiper = new Swiper(".portfolio__container", {
     cssMode: true,
     loop: true,
     navigation: {
@@ -99,6 +96,42 @@ var swiper = new Swiper(".portfolio__container", {
     mousewheel: true,
     keyboard: true,
   });
+
+function handleResize() {
+    if (window.innerWidth < 645) {
+        if (swiper) {
+            swiper.destroy(true, true);
+            swiper = null;
+        }
+        document.querySelector('.portfolio__container').classList.add('portfolio__column');
+    } else {
+        if (!swiper) {
+            swiper = new Swiper(".portfolio__container", {
+                cssMode: true,
+                loop: true,
+                navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                },
+                autoplay: {
+                  delay: 2000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                },
+                pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                },
+                mousewheel: true,
+                keyboard: true,
+              });
+        }
+        document.querySelector('.portfolio__container').classList.remove('portfolio__column');
+    }
+}
+
+window.addEventListener('resize', handleResize);
+handleResize();
 
 /*==================== TESTIMONIAL ====================*/
 

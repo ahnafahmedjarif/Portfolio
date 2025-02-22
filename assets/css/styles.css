@@ -810,11 +810,15 @@ img {
   justify-content: center;
 }
 
+.biodata__container .pair__2 {
+
+}
+
 .biodata__container .data {
   width: 100%;
   max-width: 600px;
   padding: 20px;
-  margin: 2px;
+  /* margin: 2px; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -822,6 +826,15 @@ img {
 
 .biodata__container .biodata-name {
   padding-left: 50px;
+}
+
+
+.pair__2 .data3{
+  padding-right: 75px;
+}
+
+.pair__2 .data4{
+  padding-left: 55px;
 }
 
 /* Responsive Styles */
@@ -835,6 +848,7 @@ img {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-bottom: 40px;
   }
 
   .biodata__container .biodata-name {

@@ -133,8 +133,6 @@ function handleResize() {
 window.addEventListener('resize', handleResize);
 handleResize();
 
-/*==================== TESTIMONIAL ====================*/
-
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 

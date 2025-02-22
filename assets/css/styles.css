@@ -29,10 +29,10 @@
 
 
     --first-color: hsl(var(--hue-color), 69%, 61%);
-    --first-color-second: hsl(var(--hue-color), 30%, 8%);
+    --first-color-second: hsl(var(--hue-color), 31%, 18%);
     --first-color-alt: hsl(var(--hue-color), 57%, 53%);
     --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-    --title-color: hsl(var(--hue-color), 8%, 95%);
+    --title-color: hsl(var(--hue-color), 31%, 95%);
     --text-color: hsl(var(--hue-color), 8%, 75%);
     --text-color-light: hsl(var(--hue-color), 8%, 65%);
     --input-color: hsl(var(--hue-color), 29%, 16%);
@@ -250,7 +250,7 @@ img {
     width: 100%;
     background-color: var(--body-color);
     padding: 2rem 1.5rem 4rem;
-    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
     border-radius: 1.5rem 1.5rem 0 0;
     transition: .3s;
   }  
@@ -691,13 +691,6 @@ img {
   padding: 0 1.5rem;
 }
 
-.portfolio__title, .portfolio__description {
-    width: 550px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
 .portfolio__img {
   width: 265px;
   border-radius: .5rem;
@@ -711,10 +704,6 @@ img {
 
 .portfolio__description {
   margin-bottom: var(--mb-0-75);
-}
-
-.portfolio__data {
-    margin-left: 40px;
 }
 
 .portfolio__button:hover .button__icon {
@@ -752,51 +741,6 @@ img {
 .swiper-pagination-bullet {
   outline: none;
 }
-
-/*==================== BIODATA =======================*/
-
-.biodata__header {
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font-size: var(--h1-font-size);
-}
-
-.biodata__container {
-  display: flex;
-  flex-direction: column;
-  margin-left: 65px;
-}
-
-.biodata__container .pair__1{
-  display:flex;
-  flex-direction: row;
-  /* justify-content: center; */
-}
-
-.biodata__container .pair__2{
-  display:flex;
-  flex-direction: row;
-  /* justify-content: center; */
-}
-
-
-.biodata__container .data {
-  /* border: 2px solid white; */
-  /* border-radius: 20px; */
-  width: 600px;
-  padding: 20px;
-  margin: 2px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.biodata__container .biodata-name{
-  padding-left: 50px;
-}
-
-
 
 
 /*==================== CONTACT ME ====================*/
@@ -841,6 +785,73 @@ img {
   border: none;
   outline: none;
   padding: .25rem .5rem .5rem 0;
+}
+
+/*==================== BIODATA =======================*/
+
+.biodata__header {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: var(--h1-font-size);
+}
+
+.biodata__container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 65px;
+}
+
+.biodata__container .pair__1,
+.biodata__container .pair__2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.biodata__container .data {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.biodata__container .biodata-name {
+  padding-left: 50px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .biodata__container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .biodata__container .data {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .biodata__container .biodata-name {
+    padding-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .biodata__container {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .biodata__container .data {
+    padding: 10px;
+  }
 }
 
 
@@ -981,7 +992,10 @@ img {
   .qualification__data {
     gap: .5rem;
   }
- 
+
+  .project__img {
+    width: 200px;
+  }
 
   .testimonial__data,
   .testimonial__header,
@@ -1022,6 +1036,7 @@ img {
   .about__container,
   .skills__container,
   .portfolio__content,
+  .project__container,
   .contact__container,
   .footer__container {
     grid-template-columns: repeat(2, 1fr);
@@ -1140,6 +1155,36 @@ img {
     grid-template-columns: .9fr;
   }
 
+
+  .portfolio__img {
+    width: 320px;
+  }
+
+  .portfolio__content {
+    align-items: center;
+  }
+
+  .project {
+    text-align: initial;
+  }
+
+  .project__bg {
+    background: none;
+  }
+
+  .project__container {
+    background-color: var(--first-color-second);
+    border-radius: 1rem;
+    padding: 3rem 2.5rem 3rem;
+    grid-template-columns: 1fr max-content;
+    column-gap: 3rem;
+    justify-content: center;
+  }
+
+  .project__data {
+    padding-top: .8rem;
+  }
+
   .footer__container {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1163,27 +1208,6 @@ img {
 
 }
 
-@media screen and (max-width: 1308px) {
-  .biodata__container {
-    margin-left: 0px;
-  }
-  .biodata__container .data {
-    width: 400px;
-  }
-  .biodata__container .pair__1{
-    flex-direction: column;
- }
-  .biodata__container .pair__2 {
-    flex-direction: column;
-}
-}
-
-@media screen and (max-width: 645px) {
-  .portfolio__data {
-    display: bl;
-  }
-}
-
 /* For large devices */
 @media screen and (min-width: 1024px) {
   .header,
@@ -1198,10 +1222,6 @@ img {
 
   .home__social {
     transform: translateX(-6rem);
-  }
-
-  .services__container {
-    grid-template-columns: repeat(3, 238px);
   }
 
   .portfolio__content {
